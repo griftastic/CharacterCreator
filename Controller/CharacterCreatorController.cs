@@ -6,7 +6,11 @@ namespace CharacterCreator.Controllers
     {
         public class TheCharacterCreatorController: Controller
         {
-            
+            private CharacterCreatorDbContext _context;
+            public TheCharacterCreatorController(CharacterCreatorDbContext context)
+            {
+                _context = context;
+            }
         }
     }
 }
