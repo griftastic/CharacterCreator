@@ -22,12 +22,27 @@ namespace CharacterCreator.Controllers
             Ability = model.Ability,
             Attack = model.Attack,
             Defence = model.Defence,
-            Support = model.Defence
+            Support = model.Support
         };
         _context.Characters.Add(character);
         await _context.SaveChangesAsync();
         return Ok();
         }
+        
+        [HttpDelete]
+        [Route("{id}")]
+        public async Task<IActionResult> DeleteCharacter([FromRoute] int id)
+        {
+            var character = await _context.Characters.FindAsync(id);
+            if( character == null)
+            {
+                return NotFound();
+            }
+            _context.Characters.Remove(character);
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
+        
     [HttpGet]
     public async Task<IActionResult> GetCharacters()
     {
