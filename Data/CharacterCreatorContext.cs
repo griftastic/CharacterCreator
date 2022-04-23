@@ -25,7 +25,7 @@ namespace CharacterCreator.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Name=ConnectionStrings:CharacterCreator");
+                optionsBuilder.UseSqlServer("ConnectionStrings:CharacterCreator");
             }
         }
 

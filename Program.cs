@@ -1,4 +1,5 @@
 using CharacterCreator;
+using CharacterCreator.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,7 +10,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<CharacterCreatorDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionStrings:CharacterCreator")));
+builder.Services.AddDbContext<CharacterCreatorContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
