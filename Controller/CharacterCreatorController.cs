@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CharacterCreator.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class CharacterCreatorController
     {
         public class TheCharacterCreatorController: Controller
