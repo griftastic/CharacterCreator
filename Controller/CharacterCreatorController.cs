@@ -1,5 +1,6 @@
 using CharacterCreator.Models;
 using Microsoft.AspNetCore.Mvc;
+using CharacterCreator.Data;
 
 namespace CharacterCreator.Controllers
 {
@@ -7,8 +8,8 @@ namespace CharacterCreator.Controllers
     [Route("[controller]")]
     public class CharacterCreatorController : Controller
     {
-        private CharacterCreatorDbContext _context;
-        public CharacterCreatorController(CharacterCreatorDbContext context)
+        private CharacterCreatorContext _context;
+        public CharacterCreatorController(CharacterCreatorContext context)
         {
             _context = context;
         }
