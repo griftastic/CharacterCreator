@@ -1,6 +1,7 @@
 using CharacterCreator.Models;
 using Microsoft.AspNetCore.Mvc;
 using CharacterCreator.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace CharacterCreator.Controllers
 {
@@ -27,5 +28,11 @@ namespace CharacterCreator.Controllers
         await _context.SaveChangesAsync();
         return Ok();
         }
+    [HttpGet]
+    public async Task<IActionResult> GetCharacters()
+    {
+        var character = await _context.Characters.ToListAsync();
+        return Ok(character);
+    }
     }
 }
